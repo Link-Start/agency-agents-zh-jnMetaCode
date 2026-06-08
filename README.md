@@ -2,9 +2,9 @@
 
 🌐 **简体中文** | [繁體中文](README.zh-TW.md) | [English (upstream)](https://github.com/msitarzewski/agency-agents)
 
-> **193 个即插即用的 AI 专家角色** — 覆盖工程、设计、营销、产品、游戏、安全、金融等 18 个部门。不是通用提示词模板，每个智能体都有独立的人设、专业流程和可交付成果。支持 Claude Code / Cursor / Copilot 等 14 种 AI 编程工具。
+> **215 个即插即用的 AI 专家角色** — 覆盖工程、设计、营销、产品、游戏、安全、金融等 18 个部门。不是通用提示词模板，每个智能体都有独立的人设、专业流程和可交付成果。支持 Claude Code / Cursor / Copilot 等 17 种 AI 编程工具。
 
-[agency-agents](https://github.com/msitarzewski/agency-agents) 的中文社区版。在完整翻译上游的基础上，新增了 46 个中国市场原创智能体（小红书、抖音、微信、B站、飞书、钉钉等平台运营，以及跨境电商、政务ToG、医疗合规等垂直领域）。
+[agency-agents](https://github.com/msitarzewski/agency-agents) 的中文社区版。在完整翻译上游的基础上，新增了 50 个中国市场原创智能体（小红书、抖音、微信、B站、飞书、钉钉等平台运营，以及跨境电商、政务ToG、医疗合规、Qt 工业上位机、机械设计、畜禽养殖档案核对等垂直领域）。
 
 [![GitHub stars](https://img.shields.io/github/stars/jnMetaCode/agency-agents-zh?style=social)](https://github.com/jnMetaCode/agency-agents-zh)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -15,7 +15,64 @@
 
 | 🤖 AI 智能体 | 🌏 英文版翻译 | 🇨🇳 中国市场原创 | 🧠 支持工具 | 🏢 部门 |
 |:---:|:---:|:---:|:---:|:---:|
-| **193** | **147** | **46** | **14 种** | **18 个** |
+| **215** | **165** | **50** | **17 种** | **18 个** |
+
+> 📖 **配套阅读**：[《AI 编程实战 · 方法论三卷书》](https://book.aibuzhiyu.com/) — 10 个 AI 编程工具完整教程 + 真实踩坑 · 这个仓的 215 个角色装进 Claude Code / Cursor / Codex 后，配合方法论效率更高 · 在线书 + PDF · 永久免费
+
+---
+
+## 🙏 赞助商 &nbsp;<sub>想出现在这里？联系 [jnMetaCode@qq.com](mailto:jnMetaCode@qq.com)</sub>
+
+<table>
+<tr>
+<td width="55%">
+  <a href="https://passport.compshare.cn/register?referral_code=ETD3L5JBM13CtKARkMORot&ytag=GPU_YY_YX_git_agency-agents">
+    <img src="assets/sponsor-compshare.jpeg" alt="优云智算 — 热门国产模型按次调用套餐包，低至 49 元/月起" width="100%">
+  </a>
+</td>
+<td width="45%" valign="middle">
+
+感谢[优云智算](https://passport.compshare.cn/register?referral_code=ETD3L5JBM13CtKARkMORot&ytag=GPU_YY_YX_git_agency-agents)赞助了本项目！优云智算是UCloud旗下AI云平台，主打包月、按次的高性价比国模Agent Plan套餐,低至49元/月起。同时提供官转稳定海外模型。支持接入 Claude Code、Codex 及 API 调用。支持企业高并发、7*24技术支持、自助开票。
+
+🎁 **通过[此链接](https://passport.compshare.cn/register?referral_code=ETD3L5JBM13CtKARkMORot&ytag=GPU_YY_YX_git_agency-agents)注册的用户，可得免费5元平台体验金！**
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🚀 Agency Orchestrator — 让角色库真正跑起来
+
+> **💡 一句话，让多个 AI 专家自动协作，几分钟交付完整方案。**
+>
+> 角色库提供专家，[**Agency Orchestrator**](https://github.com/jnMetaCode/agency-orchestrator) 让专家们像真实团队一样协作。
+
+```bash
+npm install -g agency-orchestrator
+ao compose "帮我写一篇关于 AI Agent 的深度分析文章" --run
+```
+
+```
+🎭 自动选角 → 叙事学家 + 心理学家 + 内容创作者 + 叙事设计师
+📊 自动编排 → DAG 工作流，检测依赖，并行执行
+✅ 自动交付 → 几分钟后拿到完整成果
+```
+
+| 能力 | 说明 |
+|:---|:---|
+| 🎯 **零代码编排** | 纯自然语言或 YAML，一句话描述需求即可 |
+| ⚡ **DAG 并行执行** | 自动检测依赖，无依赖步骤并行跑，速度翻倍 |
+| 🔄 **断点续跑** | 失败步骤可单独重跑，不用从头来 |
+| 🆓 **6 种免费 LLM** | Claude Code / Gemini CLI / Copilot / Codex / OpenClaw / Ollama |
+| 💰 **3 种 API 接入** | DeepSeek / Claude API / OpenAI |
+| 📋 **32 个现成模板** | 开发、营销、数据分析、设计、运营，开箱即用 |
+
+<p align="center">
+  <a href="https://github.com/jnMetaCode/agency-orchestrator">
+    <strong>⭐ 查看 Agency Orchestrator — 让 215 个角色为你协作 →</strong>
+  </a>
+</p>
 
 ---
 
@@ -23,24 +80,7 @@
 
 一套**开箱即用的 AI 角色库**。每个智能体都有明确的身份定义、关键规则、工作流程和交付物，安装到你的 AI 编程工具后用自然语言激活。
 
-**和普通提示词的区别**：普通提示词告诉 AI "你是一个专家"；这里的智能体定义了专家**怎么思考、怎么做事、交付什么**。例如[安全工程师](engineering/engineering-security-engineer.md)会按 OWASP Top 10 逐项审查代码，[小红书运营](marketing/marketing-xiaohongshu-operator.md)会输出完整的种草笔记策略和达人合作方案。
-
-### 🤝 多智能体协作
-
-单个角色很强，但多个角色**协作**更强。[Agency Orchestrator](https://github.com/jnMetaCode/agency-orchestrator) 是配套的多智能体编排引擎——用 YAML 定义工作流，自动调度角色协作：
-
-```bash
-npm install agency-orchestrator
-npx ao run workflows/story-creation.yaml --input premise='你的创意'
-```
-
-```
-叙事学家 ──→ 心理学家    ──→ 内容创作者
-          └→ 叙事设计师 ──┘
-           (自动并行)
-```
-
-支持 DeepSeek / Claude / OpenAI / Ollama，零代码，写 YAML 就能编排角色协作。[了解更多 →](https://github.com/jnMetaCode/agency-orchestrator)
+**和普通提示词的区别**：普通提示词告诉 AI "你是一个专家"；这里的智能体定义了专家**怎么思考、怎么做事、交付什么**。例如[安全工程师](engineering/engineering-security-engineer.md)会按 OWASP Top 10 逐项审查代码，[小红书运营专家](marketing/marketing-xiaohongshu-operator.md)会输出完整的种草笔记策略和达人合作方案。
 
 ---
 
@@ -48,7 +88,7 @@ npx ao run workflows/story-creation.yaml --input premise='你的创意'
 
 ### 方式一：一键安装到你的 AI 工具
 
-支持 **14 种主流 AI 编程工具**，一条命令搞定：
+支持 **17 种主流 AI 编程工具**，一条命令搞定：
 
 ```bash
 # 自动检测已安装的工具，一键安装
@@ -69,6 +109,9 @@ npx ao run workflows/story-creation.yaml --input premise='你的创意'
 ./scripts/install.sh --tool qwen           # Qwen Code
 ./scripts/install.sh --tool codex          # Codex CLI
 ./scripts/install.sh --tool deerflow       # DeerFlow 2.0 (ByteDance)
+./scripts/install.sh --tool workbuddy      # WorkBuddy (Tencent)
+./scripts/install.sh --tool hermes         # Hermes Agent (NousResearch)
+./scripts/install.sh --tool qoder          # Qoder
 ```
 
 > Claude Code 和 GitHub Copilot 可直接安装；其他工具需先运行 `./scripts/convert.sh` 转换格式。
@@ -111,7 +154,7 @@ cp -r marketing/*.md ~/.claude/agents/
 | [前端开发者](engineering/engineering-frontend-developer.md) | React/Vue、UI 实现、性能优化 | 现代 Web 应用、像素级 UI |
 | [后端架构师](engineering/engineering-backend-architect.md) | API 设计、数据库架构、可扩展性 | 服务端系统、微服务 |
 | [AI 工程师](engineering/engineering-ai-engineer.md) | 机器学习、模型部署、AI 集成 | ML 功能、数据管线 |
-| [DevOps 自动化](engineering/engineering-devops-automator.md) | CI/CD、基础设施自动化 | 流水线开发、部署自动化 |
+| [DevOps 自动化师](engineering/engineering-devops-automator.md) | CI/CD、基础设施自动化 | 流水线开发、部署自动化 |
 | [安全工程师](engineering/engineering-security-engineer.md) | 威胁建模、代码审计、安全架构 | 应用安全、漏洞评估 |
 | [快速原型师](engineering/engineering-rapid-prototyper.md) | 快速 POC、MVP 开发 | 概念验证、黑客马拉松 |
 | [高级开发者](engineering/engineering-senior-developer.md) | Laravel/Livewire/FluxUI、高端 CSS、Three.js | 高品质 Web 体验 |
@@ -120,6 +163,8 @@ cp -r marketing/*.md ~/.claude/agents/
 | [技术文档工程师](engineering/engineering-technical-writer.md) | API 文档、开发者文档、docs-as-code | 技术文档、知识库 |
 | [自主优化架构师](engineering/engineering-autonomous-optimization-architect.md) | 自适应系统、自动调优 | 智能运维、自愈系统 |
 | [嵌入式固件工程师](engineering/engineering-embedded-firmware-engineer.md) | RTOS、外设驱动、低功耗设计 | IoT、嵌入式系统 |
+| [上位机工程师](engineering/engineering-pc-host-engineer.md) ⭐ | Qt/QML、QSerialPort、Modbus/CAN、QChart 实时可视化 | 工业上位机、检测设备、HMI |
+| [机械设计工程师](engineering/engineering-mechanical-design-engineer.md) ⭐ | 传动选型、强度刚度疲劳振动校核、DFMA、GB/ISO 标准件 | 工业装备、自动化产线、检测仪器 |
 | [嵌入式 Linux 驱动工程师](engineering/engineering-embedded-linux-driver-engineer.md) ⭐ | 内核模块、设备树、Platform/I2C/SPI 驱动 | 嵌入式 Linux BSP 开发 |
 | [FPGA/ASIC 数字设计工程师](engineering/engineering-fpga-digital-design-engineer.md) ⭐ | Verilog/SystemVerilog、时序收敛、AXI 总线 | FPGA 开发、数字逻辑设计 |
 | [IoT 方案架构师](engineering/engineering-iot-solution-architect.md) ⭐ | MQTT/CoAP、边缘计算、设备管理、云平台 | 物联网端到端方案设计 |
@@ -131,10 +176,13 @@ cp -r marketing/*.md ~/.claude/agents/
 | [数据库优化师](engineering/engineering-database-optimizer.md) | Schema 设计、查询优化、索引策略 | 数据库性能调优 |
 | [Git 工作流大师](engineering/engineering-git-workflow-master.md) | 分支策略、约定式提交、变基 | Git 工作流规范 |
 | [软件架构师](engineering/engineering-software-architect.md) | 系统设计、DDD、架构决策 | 系统架构设计 |
-| [SRE](engineering/engineering-sre.md) | SLO、可观测性、混沌工程 | 站点可靠性工程 |
+| [SRE (站点可靠性工程师)](engineering/engineering-sre.md) | SLO、可观测性、混沌工程 | 站点可靠性工程 |
 | [AI 数据修复工程师](engineering/engineering-ai-data-remediation-engineer.md) | 自愈管道、SLM 语义聚类、零数据丢失 | 大规模数据异常修复 |
 | [飞书集成开发工程师](engineering/engineering-feishu-integration-developer.md) ⭐ | 飞书机器人、审批流、多维表格 | 飞书生态集成开发 |
 | [钉钉集成开发工程师](engineering/engineering-dingtalk-integration-developer.md) ⭐ | 钉钉机器人、酷应用、连接器 | 钉钉生态集成开发 |
+| [CMS 开发者](engineering/engineering-cms-developer.md) | Drupal/WordPress、主题开发、自定义插件 | CMS 站点开发与内容架构 |
+| [邮件智能工程师](engineering/engineering-email-intelligence-engineer.md) | 邮件解析、结构化提取、AI 推理数据 | 智能体邮件集成 |
+| [Filament 优化专家](engineering/engineering-filament-optimization-specialist.md) | Filament PHP 后台重构、高影响力改造 | PHP 后台管理优化 |
 
 ### 🎨 设计部
 
@@ -159,12 +207,12 @@ cp -r marketing/*.md ~/.claude/agents/
 
 | 智能体 | 专长 | 适用场景 |
 |--------|------|----------|
-| [小红书运营](marketing/marketing-xiaohongshu-operator.md) ⭐ | 种草笔记、达人合作、爆款内容 | 小红书获客、品牌种草 |
+| [小红书运营专家](marketing/marketing-xiaohongshu-operator.md) ⭐ | 种草笔记、达人合作、爆款内容 | 小红书获客、品牌种草 |
 | [抖音策略师](marketing/marketing-douyin-strategist.md) ⭐ | 短视频策划、算法优化、直播带货 | 抖音增长、短视频营销 |
 | [微信公众号运营](marketing/marketing-wechat-operator.md) ⭐ | 公众号内容、社群运营、裂变增长 | 微信生态营销 |
 | [B站内容策略师](marketing/marketing-bilibili-strategist.md) ⭐ | UP主运营、弹幕文化、中长视频 | B站内容增长、品牌合作 |
 | [快手策略师](marketing/marketing-kuaishou-strategist.md) ⭐ | 下沉市场、老铁文化、直播电商 | 快手运营、社区信任 |
-| [中国电商运营师](marketing/marketing-china-ecommerce-operator.md) | 淘宝/拼多多/京东、广告投放、大促作战 | 电商全链路深度运营 |
+| [中国电商运营专家](marketing/marketing-china-ecommerce-operator.md) | 淘宝/拼多多/京东、广告投放、大促作战 | 电商全链路深度运营 |
 | [电商运营师](marketing/marketing-ecommerce-operator.md) ⭐ | 淘宝/拼多多/京东、直播带货、大促 | 电商全平台运营（简洁版） |
 | [百度 SEO 专家](marketing/marketing-baidu-seo-specialist.md) ⭐ | 百度优化、百科/知道/贴吧生态 | 百度搜索营销 |
 | [私域流量运营师](marketing/marketing-private-domain-operator.md) ⭐ | 企微SCRM、社群运营、用户生命周期 | 私域体系搭建、复购增长 |
@@ -178,6 +226,8 @@ cp -r marketing/*.md ~/.claude/agents/
 | [小红书专家](marketing/marketing-xiaohongshu-specialist.md) | 生活方式内容、趋势策略 | 小红书品牌建设 |
 | [微信公众号管理](marketing/marketing-wechat-official-account.md) | 订阅者运营、内容营销 | 微信公众号增长 |
 | [知乎策略师](marketing/marketing-zhihu-strategist.md) | 知识型内容、思想领袖建设 | 知乎品牌权威 |
+| [中国市场本地化策略师](marketing/marketing-china-market-localization-strategist.md) ⭐ | 抖音/小红书/微信/B站全栈本地化 | 中国市场进入策略 |
+| [新闻情报官](marketing/marketing-daily-news-briefing.md) ⭐ | 国内外多源新闻采集、交叉验证、结构化简报 | 内容生产线上游素材供应 |
 
 > ⭐ 标记的是本项目原创，更贴合国内实操。其余为上游英文版翻译。
 
@@ -190,6 +240,7 @@ cp -r marketing/*.md ~/.claude/agents/
 | [Instagram 策展师](marketing/marketing-instagram-curator.md) | 视觉叙事、社区运营 | 出海视觉营销 |
 | [Reddit 社区运营](marketing/marketing-reddit-community-builder.md) | 社区文化、真实互动 | 出海社区营销 |
 | [应用商店优化师](marketing/marketing-app-store-optimizer.md) | ASO、转化优化 | App 出海推广 |
+| [视频优化专家](marketing/marketing-video-optimization-specialist.md) | YouTube 算法、观众留存、跨平台分发 | 视频营销与 SEO |
 
 **通用：**
 
@@ -202,6 +253,7 @@ cp -r marketing/*.md ~/.claude/agents/
 | [轮播图增长引擎](marketing/marketing-carousel-growth-engine.md) | 轮播图内容、自动化投放 | 社交媒体轮播素材 |
 | [LinkedIn 内容创作专家](marketing/marketing-linkedin-content-creator.md) | LinkedIn 职场内容、B2B 获客 | LinkedIn 品牌建设 |
 | [图书联合作者](marketing/marketing-book-co-author.md) | 思想领袖力图书、代笔协作 | 图书策划与撰写 |
+| [AI 引文策略师](marketing/marketing-ai-citation-strategist.md) | AEO/GEO 优化、AI 平台可见性审计 | AI 搜索引擎品牌可见性 |
 
 ### 💰 付费媒体部
 
@@ -269,6 +321,7 @@ cp -r marketing/*.md ~/.claude/agents/
 | [库存预测专家](supply-chain/supply-chain-inventory-forecaster.md) ⭐ | 需求预测、安全库存、618/双11备货 | 库存管理与补货优化 |
 | [供应商评估专家](supply-chain/supply-chain-vendor-evaluator.md) ⭐ | 1688供应商、验厂、国标质检 | 供应商准入与分级管理 |
 | [物流路线优化师](supply-chain/supply-chain-route-optimizer.md) ⭐ | 顺丰/通达系、冷链、跨境物流 | 物流成本优化与路线规划 |
+| [供应链采购策略师](supply-chain/supply-chain-strategist.md) ⭐ | 1688采购、质检、供应商管理、ERP | 供应链与采购管理 |
 
 ### 📦 产品部
 
@@ -324,7 +377,6 @@ cp -r marketing/*.md ~/.claude/agents/
 | [财务追踪员](support/support-finance-tracker.md) | 财务分析、预算管理 | 财务规划、成本管控 |
 | [基础设施运维师](support/support-infrastructure-maintainer.md) | 系统运维、可靠性工程 | 基础设施管理、故障排查 |
 | [招聘运营专家](support/support-recruitment-specialist.md) ⭐ | Boss直聘/猎聘、劳动法、校招社招 | 招聘全流程与HR合规 |
-| [供应链采购策略师](support/support-supply-chain-strategist.md) ⭐ | 1688采购、质检、供应商管理、ERP | 供应链与采购管理 |
 
 ### 🔬 专项部
 
@@ -361,6 +413,11 @@ cp -r marketing/*.md ~/.claude/agents/
 | [AI 治理政策专家](specialized/specialized-ai-policy-writer.md) ⭐ | 算法备案、生成式AI管理、伦理审查 | AI 合规与治理框架 |
 | [企业风险评估师](specialized/specialized-risk-assessor.md) ⭐ | COSO本土化、国企风控、ESG | 企业风险管理与审计 |
 | [会议效率专家](specialized/specialized-meeting-assistant.md) ⭐ | 飞书/钉钉/腾讯会议、OKR周会 | 会议管理与纪要输出 |
+| [土木工程师](specialized/specialized-civil-engineer.md) | Eurocode/DIN/ACI/GB 多标准结构分析 | 土木与结构工程设计 |
+| [法国咨询市场专家](specialized/specialized-french-consulting-market.md) | ESN/SI 生态、Malt 平台、薪资代管 | 法国自由职业市场导航 |
+| [韩国商务专家](specialized/specialized-korean-business-navigator.md) | 품의流程、KakaoTalk 礼仪、层级关系 | 韩国商务文化导航 |
+| [招聘专家](specialized/recruitment-specialist.md) ⭐ | 国内招聘平台、人才评估、劳动法合规 | 招聘运营与雇主品牌 |
+| [技术翻译专家](specialized/technical-translator-agent.md) | 中英文双向翻译、编程/AI/云计算术语 | 技术文档翻译 |
 
 ### 🥽 空间计算部
 
@@ -460,7 +517,7 @@ cp -r marketing/*.md ~/.claude/agents/
 
 ## 工具集成
 
-支持 **14 种主流 AI 编程工具**，通过 `scripts/` 目录下的脚本实现格式转换和一键安装。
+支持 **17 种主流 AI 编程工具**，通过 `scripts/` 目录下的脚本实现格式转换和一键安装。
 
 ### 支持的工具
 
@@ -479,7 +536,10 @@ cp -r marketing/*.md ~/.claude/agents/
 | **Aider** | `CONVENTIONS.md` | 项目级，需转换 |
 | **Windsurf** | `.windsurfrules` | 项目级，需转换 |
 | **Codex CLI** | `.codex/agents/` | 项目级，需转换 |
+| **WorkBuddy** (腾讯) | `~/.workbuddy/skills/` | 全局，需转换 |
+| **Hermes Agent** (NousResearch) | `~/.hermes/skills/` | 全局，需转换 |
 | **DeerFlow 2.0** (字节跳动) | `skills/custom/` | 项目级，需转换 |
+| **Qoder** | `~/.qoder/agents/` 或 `.qoder/agents/` | 全局/项目级，需转换 |
 
 ### 使用方法
 
@@ -637,13 +697,25 @@ cp integrations/cursor/rules/engineering-code-reviewer.mdc /your/project/.cursor
 <details>
 <summary><strong>Trae</strong></summary>
 
-转换为 Trae rule 文件并安装到项目目录 `.trae/rules/`。格式与 Cursor 类似。
+转换为 Trae rule 文件并安装到项目目录 `.trae/rules/`。格式与 Cursor 同源（仅扩展名 `.md` 不同）。
 
 ```bash
 ./scripts/convert.sh --tool trae
 cd /your/project
 /path/to/agency-agents-zh/scripts/install.sh --tool trae
 ```
+
+**⚠️ 关于"装了但几乎不自动触发"**（见 [issue #59](https://github.com/jnMetaCode/agency-agents-zh/issues/59)）：
+
+转换出的 rule 默认 `alwaysApply: false` + 空 `globs:`，属于 "agent-requested rule"——Trae 模型读 description 自行决定是否加载。**全装 215 条 rule 会让 description 互相稀释、几乎命中不到任何一条**，这是设计行为不是 bug。
+
+**正确姿势**：
+
+1. **精选安装（推荐）**：只挑 10–20 条常用 rule 放进 `.trae/rules/`，自动匹配才会真正起作用。
+2. **`@` 显式调用**：对话里输入 `@engineering-pc-host-engineer ...` 强制加载某条 rule。
+3. **核心 rule 改 alwaysApply**：把代码审查、git 工作流之类的 1–3 条改成 `alwaysApply: true` 长期生效。
+
+详细说明见 [integrations/trae/README.md](integrations/trae/README.md)。
 </details>
 
 <details>
@@ -723,6 +795,50 @@ kiro-cli --agent engineering-frontend-developer
 </details>
 
 <details>
+<summary><strong>WorkBuddy (腾讯)</strong></summary>
+
+腾讯推出的全场景 AI 桌面智能体，兼容 OpenClaw 技能，支持多模型切换。每个智能体转换为 `SKILL.md` 技能文件，安装到 `~/.workbuddy/skills/`（全局）。
+
+```bash
+./scripts/convert.sh --tool workbuddy
+./scripts/install.sh --tool workbuddy
+```
+
+安装后重启 WorkBuddy 即可在技能列表中看到所有智能体。
+</details>
+
+<details>
+<summary><strong>Hermes Agent (NousResearch)</strong></summary>
+
+NousResearch 的开源 AI 智能体框架，支持技能系统、子代理编排、会话记忆。每个智能体转换为 `SKILL.md` 技能文件，按分类目录安装到 `~/.hermes/skills/`（全局）。
+
+```bash
+./scripts/convert.sh --tool hermes
+./scripts/install.sh --tool hermes
+```
+
+安装后**推荐在 Hermes CLI** 中通过 `hermes skills` 查看和管理所有技能，或在对话中自然语言激活。
+
+> ⚠️ **Discord 模式下不要一次性全量安装**
+>
+> Hermes 的 Discord 集成会把每一个 skill 注册成 Discord 斜杠命令，Discord API 对 bot 所有命令的 JSON 序列化总长度有 **8000 字符硬上限**，超过后会返回 `error code 50035`（见 [issue #45](https://github.com/jnMetaCode/agency-agents-zh/issues/45)）。本仓库有近 200 个 skill，一次装全会直接炸 Discord。
+>
+> 解决办法：在 Discord 中使用时请按**分类**分批安装，用 `--category` 参数（可多次传入）：
+>
+> ```bash
+> # 只装 marketing 分类
+> ./scripts/install.sh --tool hermes --category marketing
+>
+> # 同时装 engineering 和 design
+> ./scripts/install.sh --tool hermes --category engineering --category design
+> ```
+>
+> 可选分类：`academic, blender, design, engineering, finance, game-development, godot, hr, legal, marketing, paid-media, product, project-management, roblox-studio, sales, spatial-computing, specialized, supply-chain, support, testing, unity, unreal-engine`。
+>
+> Hermes CLI 本身没有此限制，全量安装可以继续使用。
+</details>
+
+<details>
 <summary><strong>DeerFlow 2.0 (字节跳动)</strong></summary>
 
 字节跳动的开源 SuperAgent 框架，支持子代理、沙箱、持久记忆。每个智能体转换为 `SKILL.md` 技能文件。
@@ -741,6 +857,23 @@ DEERFLOW_SKILLS_DIR=/path/to/deerflow/skills/custom ./scripts/install.sh --tool 
 安装后在 DeerFlow 的任务中，相关技能会自动加载。
 </details>
 
+<details>
+<summary><strong>Qoder</strong></summary>
+
+转换为 Qoder SubAgent 格式（Markdown + YAML frontmatter）并安装到 `~/.qoder/agents/`（全局）或项目目录 `.qoder/agents/`。
+
+```bash
+./scripts/convert.sh --tool qoder
+./scripts/install.sh --tool qoder
+```
+
+在 Qoder 中使用：
+- **自动触发**：用自然语言描述任务，Qoder 根据 description 自动选择智能体
+- **手动触发**：输入 `/agent-name`（如 `/engineering-frontend-developer`）
+
+> 官方文档：https://docs.qoder.com/zh/extensions/subagent
+</details>
+
 ### 修改智能体后重新生成
 
 添加新智能体或编辑现有智能体后，重新生成集成文件：
@@ -754,11 +887,11 @@ DEERFLOW_SKILLS_DIR=/path/to/deerflow/skills/custom ./scripts/install.sh --tool 
 
 ## 🇨🇳 中国市场原创智能体
 
-除翻译外，本项目包含 **46 个原创智能体**，专为中国平台和业务场景打造：
+除翻译外，本项目包含 **50 个原创智能体**，专为中国平台和业务场景打造：
 
 - **平台运营**：小红书、抖音、微信公众号/视频号/小程序、B站、快手、微博、知乎
 - **企业协作**：飞书、钉钉集成开发
-- **垂直领域**：跨境电商、政务ToG、医疗合规、高考志愿、留学规划
+- **垂直领域**：跨境电商、政务ToG、医疗合规、高考志愿、留学规划、Qt 工业上位机、通用机械设计、畜禽养殖档案核对
 - **业务支撑**：私域流量、直播电商、库存预测、合同审查、发票管理
 
 > 在上方智能体阵容中标有 ⭐ 的即为原创智能体。
@@ -779,7 +912,7 @@ DEERFLOW_SKILLS_DIR=/path/to/deerflow/skills/custom ./scripts/install.sh --tool 
 ### 场景二：[小红书品牌推广](examples/workflow-xiaohongshu-launch.md)（完整流程）
 
 **你的团队**：
-1. **小红书运营** — 种草内容策略和达人合作
+1. **小红书运营专家** — 种草内容策略和达人合作
 2. **内容创作者** — 产出种草笔记
 3. **品牌守护者** — 品牌调性把关
 4. **数据分析师** — 追踪投放数据、出复盘报告
@@ -799,19 +932,21 @@ DEERFLOW_SKILLS_DIR=/path/to/deerflow/skills/custom ./scripts/install.sh --tool 
 
 | 渠道 | 加入方式 |
 |------|---------|
-| QQ 群 | [点击加入](https://qm.qq.com/q/EeNQA9xCxy)（群号 1071280067） |
+| QQ 2群 | [点击加入](https://qm.qq.com/q/EeNQA9xCxy)（群号 1071280067） |
 | 微信群 | 关注公众号后回复「群」获取入群方式 |
 
 ---
 
 ## 姊妹项目
 
-| 项目 | 说明 |
-|------|------|
-| [ai-coding-guide](https://github.com/jnMetaCode/ai-coding-guide) | AI 编程工具实战指南 — 66 个 Claude Code 技巧 + 9 款工具最佳实践 + 可复制配置模板 |
-| [agency-orchestrator](https://github.com/jnMetaCode/agency-orchestrator) | 多智能体编排引擎 — 用 YAML 编排 193 个角色协作，支持 DeepSeek/Claude/OpenAI/Ollama，零代码 |
-| [superpowers-zh](https://github.com/jnMetaCode/superpowers-zh) | AI 编程超能力 · 中文版 — 20 个 skills，让你的 AI 编程助手真正会干活 |
-| [shellward](https://github.com/jnMetaCode/shellward) | AI 智能体安全中间件 — 注入检测、数据防泄露、命令安全、零依赖、MCP Server |
+| 项目 | 定位 | 一句话 |
+|------|------|-------|
+| **本项目**（agency-agents-zh） ![](https://img.shields.io/github/stars/jnMetaCode/agency-agents-zh?style=flat&label=⭐) | 🎭 专家角色库 | 215 个**即插即用** AI 专家，含 50 中国原创（小红书 / 抖音 / 飞书 / 钉钉 / Qt 上位机 / 机械设计） |
+| [agency-orchestrator](https://github.com/jnMetaCode/agency-orchestrator) | 🚀 编排引擎 | 一句话 → 215 专家协作，**几分钟出方案**（9 家 LLM / 6 免费） |
+| [superpowers-zh](https://github.com/jnMetaCode/superpowers-zh) ![](https://img.shields.io/github/stars/jnMetaCode/superpowers-zh?style=flat&label=⭐) | 🧠 工作方法论 | 20 个 skills 教 AI 怎么干活（TDD / 调试 / 代码审查等） |
+| [ai-coding-guide](https://github.com/jnMetaCode/ai-coding-guide) | 📖 实战教程 | 66 个 Claude Code 技巧 + 9 款工具最佳实践 + 配置模板 |
+| [shellward](https://github.com/jnMetaCode/shellward) | 🛡️ 安全中间件 | 8 层防御 + DLP 数据流 + 注入检测，**零依赖**（含 MCP Server） |
+| 🆕 [ai-shortfilm-prompts](https://github.com/jnMetaCode/ai-shortfilm-prompts) | 🎬 视频提示词 | Mx-Shell《丧尸清道夫》5 段式方法论 + Skill，Seedance / 小云雀 / Sora / 可灵 / 即梦通用 |
 
 ---
 
@@ -830,10 +965,16 @@ MIT License — 自由使用，商业或个人均可。
 
 <div align="center">
 
-**193 个 AI 专家角色，14 种工具支持，即装即用**
+**215 个 AI 专家角色，17 种工具支持，即装即用**
 
 [⭐ Star 本项目](https://github.com/jnMetaCode/agency-agents-zh) · [提交 Issue](https://github.com/jnMetaCode/agency-agents-zh/issues) · [贡献代码](https://github.com/jnMetaCode/agency-agents-zh/pulls)
 
 基于 [agency-agents](https://github.com/msitarzewski/agency-agents) 翻译并本土化
 
 </div>
+
+---
+
+## ⭐ Star 趋势
+
+[![Star History Chart](https://api.star-history.com/svg?repos=jnMetaCode/agency-agents-zh&type=Date)](https://star-history.com/#jnMetaCode/agency-agents-zh&Date)

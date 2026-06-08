@@ -22,8 +22,20 @@
 #   qwen         -- 复制 SubAgent 到 .qwen/agents/（项目级）
 #   codex        -- 复制到 .codex/agents/（项目级）
 #   deerflow     -- 复制到 DeerFlow custom skills 目录（Docker 项目级）
+#   workbuddy    -- 复制到 ~/.workbuddy/skills/（全局）
+#   hermes       -- 复制到 ~/.hermes/skills/（全局）
 #   kiro         -- 复制到 ~/.kiro/agents/（全局）
+#   qoder        -- 复制到 .qoder/agents/（项目级）
 #   all          -- 安装所有已检测到的工具（默认）
+#
+# Hermes 专属参数：
+#   --category <名称>  只安装某一分类下的 skills，可重复传入多次。
+#                      分类取 integrations/hermes/ 下的目录名，例如：
+#                        --category marketing
+#                        --category engineering --category design
+#                      Discord 模式下 Hermes 会把每个 skill 注册为斜杠命令，
+#                      总 JSON 超过 8000 字符会被 Discord API 拒绝 (error 50035)，
+#                      若需要在 Discord 中使用建议按分类分批安装。
 
 set -euo pipefail
 
@@ -46,7 +58,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 INTEGRATIONS="$REPO_ROOT/integrations"
 
-ALL_TOOLS=(claude-code copilot antigravity gemini-cli opencode openclaw cursor trae aider windsurf qwen codex deerflow kiro)
+ALL_TOOLS=(claude-code copilot antigravity gemini-cli opencode openclaw cursor trae aider windsurf qwen codex deerflow workbuddy hermes kiro qoder)
 
 # --- 用法 ---
 usage() {
@@ -76,7 +88,10 @@ detect_windsurf()     { command -v windsurf >/dev/null 2>&1 || [[ -d "${HOME}/.c
 detect_qwen()         { command -v qwen >/dev/null 2>&1 || [[ -d "${HOME}/.qwen" ]]; }
 detect_codex()        { command -v codex >/dev/null 2>&1 || [[ -d "${HOME}/.codex" ]]; }
 detect_deerflow()     { command -v deerflow >/dev/null 2>&1 || [[ -d "${HOME}/.deerflow" ]] || docker ps --format '{{.Names}}' 2>/dev/null | grep -q deerflow; }
+detect_workbuddy()    { command -v workbuddy >/dev/null 2>&1 || [[ -d "${HOME}/.workbuddy" ]]; }
+detect_hermes()       { command -v hermes >/dev/null 2>&1 || [[ -d "${HOME}/.hermes" ]]; }
 detect_kiro()         { command -v kiro >/dev/null 2>&1 || command -v kiro-cli >/dev/null 2>&1 || [[ -d "${HOME}/.kiro" ]]; }
+detect_qoder()        { command -v qoder >/dev/null 2>&1 || [[ -d "${HOME}/.qoder" ]]; }
 
 is_detected() {
   case "$1" in
@@ -93,7 +108,10 @@ is_detected() {
     qwen)        detect_qwen        ;;
     codex)       detect_codex       ;;
     deerflow)    detect_deerflow    ;;
+    workbuddy)   detect_workbuddy   ;;
+    hermes)      detect_hermes      ;;
     kiro)        detect_kiro        ;;
+    qoder)       detect_qoder       ;;
     *)           return 1 ;;
   esac
 }
@@ -107,12 +125,16 @@ tool_label() {
     opencode)    printf "%-14s  %s" "OpenCode"     "(opencode.ai)"          ;;
     openclaw)    printf "%-14s  %s" "OpenClaw"     "(~/.openclaw)"          ;;
     cursor)      printf "%-14s  %s" "Cursor"       "(.cursor/rules)"        ;;
+    trae)        printf "%-14s  %s" "Trae"         "(.trae/rules)"          ;;
     aider)       printf "%-14s  %s" "Aider"        "(CONVENTIONS.md)"       ;;
     windsurf)    printf "%-14s  %s" "Windsurf"     "(.windsurfrules)"       ;;
     qwen)        printf "%-14s  %s" "Qwen Code"    "(~/.qwen/agents)"       ;;
     codex)       printf "%-14s  %s" "Codex CLI"    "(.codex/agents)"        ;;
     deerflow)    printf "%-14s  %s" "DeerFlow"     "(skills/custom)"        ;;
+    workbuddy)   printf "%-14s  %s" "WorkBuddy"    "(~/.workbuddy/skills)"  ;;
+    hermes)      printf "%-14s  %s" "Hermes Agent" "(~/.hermes/skills)"     ;;
     kiro)        printf "%-14s  %s" "Kiro"         "(~/.kiro/agents)"       ;;
+    qoder)       printf "%-14s  %s" "Qoder"        "(.qoder/agents)"        ;;
   esac
 }
 
@@ -357,6 +379,72 @@ install_deerflow() {
   warn "DeerFlow: 默认安装到 ./skills/custom/。设置 DEERFLOW_SKILLS_DIR 可自定义路径。"
 }
 
+install_workbuddy() {
+  local src="$INTEGRATIONS/workbuddy"
+  local dest="${HOME}/.workbuddy/skills"
+  local count=0
+
+  [[ -d "$src" ]] || { err "integrations/workbuddy 不存在。请先运行 convert.sh --tool workbuddy"; return 1; }
+
+  mkdir -p "$dest"
+
+  local d
+  while IFS= read -r -d '' d; do
+    local name; name="$(basename "$d")"
+    [[ -f "$d/SKILL.md" ]] || continue
+    mkdir -p "$dest/$name"
+    cp "$d/SKILL.md" "$dest/$name/SKILL.md"
+    (( count++ )) || true
+  done < <(find "$src" -mindepth 1 -maxdepth 1 -type d -print0)
+
+  ok "WorkBuddy: $count 个 skills -> $dest"
+}
+
+install_hermes() {
+  local src="$INTEGRATIONS/hermes"
+  local dest="${HOME}/.hermes/skills"
+  local count=0
+
+  [[ -d "$src" ]] || { err "integrations/hermes 不存在。请先运行 convert.sh --tool hermes"; return 1; }
+
+  # 若指定了 --category，只安装命中的分类；否则安装全部
+  local filter_note=""
+  if [[ ${#HERMES_CATEGORIES[@]} -gt 0 ]]; then
+    local c
+    for c in "${HERMES_CATEGORIES[@]}"; do
+      [[ -d "$src/$c" ]] || { err "hermes 分类不存在: ${c}（可选: $(ls "$src" | tr '\n' ' ')）"; return 1; }
+    done
+    filter_note=" [分类: ${HERMES_CATEGORIES[*]}]"
+  fi
+
+  mkdir -p "$dest"
+
+  # Hermes 保留两级目录结构：category/skill-name/SKILL.md
+  local catdir
+  while IFS= read -r -d '' catdir; do
+    local catname; catname="$(basename "$catdir")"
+    if [[ ${#HERMES_CATEGORIES[@]} -gt 0 ]]; then
+      local matched=false c
+      for c in "${HERMES_CATEGORIES[@]}"; do [[ "$c" == "$catname" ]] && matched=true && break; done
+      $matched || continue
+    fi
+    local skilldir
+    while IFS= read -r -d '' skilldir; do
+      local skillname; skillname="$(basename "$skilldir")"
+      [[ -f "$skilldir/SKILL.md" ]] || continue
+      mkdir -p "$dest/$catname/$skillname"
+      cp "$skilldir/SKILL.md" "$dest/$catname/$skillname/SKILL.md"
+      (( count++ )) || true
+    done < <(find "$catdir" -mindepth 1 -maxdepth 1 -type d -print0)
+  done < <(find "$src" -mindepth 1 -maxdepth 1 -type d -print0)
+
+  ok "Hermes Agent: $count 个 skills -> $dest$filter_note"
+  if [[ ${#HERMES_CATEGORIES[@]} -eq 0 && $count -gt 80 ]]; then
+    warn "Hermes Discord 模式对斜杠命令总长有 8000 字符上限（error 50035）。"
+    warn "若要在 Discord 中使用，建议用 --category <名称> 按分类分批安装。"
+  fi
+}
+
 install_kiro() {
   local src="$INTEGRATIONS/kiro"
   local dest="${HOME}/.kiro/agents"
@@ -364,24 +452,38 @@ install_kiro() {
 
   [[ -d "$src" ]] || { err "integrations/kiro 不存在。请先运行 convert.sh --tool kiro"; return 1; }
 
-  mkdir -p "$dest/prompts"
+  mkdir -p "$dest"
 
-  # 复制 JSON 配置文件
+  # Kiro 自定义智能体格式：.md 文件（带 YAML frontmatter）
+  # 参考：https://kiro.dev/docs/chat/subagents/
   local f
   while IFS= read -r -d '' f; do
     cp "$f" "$dest/"
     (( count++ )) || true
-  done < <(find "$src" -maxdepth 1 -name "*.json" -print0)
-
-  # 复制 prompt 文件
-  if [[ -d "$src/prompts" ]]; then
-    while IFS= read -r -d '' f; do
-      cp "$f" "$dest/prompts/"
-    done < <(find "$src/prompts" -maxdepth 1 -name "*.md" -print0)
-  fi
+  done < <(find "$src" -maxdepth 1 -name "*.md" -print0)
 
   ok "Kiro: $count 个智能体 -> $dest"
-  warn "提示: 在 Kiro 中使用 '/agent swap' 切换智能体"
+  warn "提示: Kiro 会自动识别 ~/.kiro/agents/ 下的 .md 文件作为自定义子智能体"
+  warn "提示: 在对话中使用 '/<agent-name>' 或让 Kiro 自动选择合适的子智能体"
+}
+
+install_qoder() {
+  local src="$INTEGRATIONS/qoder/agents"
+  local dest="${PWD}/.qoder/agents"
+  local count=0
+
+  [[ -d "$src" ]] || { err "integrations/qoder 不存在。请先运行 convert.sh --tool qoder"; return 1; }
+
+  mkdir -p "$dest"
+
+  local f
+  while IFS= read -r -d '' f; do
+    cp "$f" "$dest/"
+    (( count++ )) || true
+  done < <(find "$src" -maxdepth 1 -name "*.md" -print0)
+
+  ok "Qoder: $count 个智能体 -> $dest"
+  warn "Qoder: 项目级安装。请在项目根目录运行。"
 }
 
 install_tool() {
@@ -399,22 +501,32 @@ install_tool() {
     qwen)        install_qwen        ;;
     codex)       install_codex       ;;
     deerflow)    install_deerflow    ;;
+    workbuddy)   install_workbuddy   ;;
+    hermes)      install_hermes      ;;
     kiro)        install_kiro        ;;
+    qoder)       install_qoder       ;;
   esac
 }
 
 # --- 入口 ---
 main() {
   local tool="all"
+  HERMES_CATEGORIES=()
 
   while [[ $# -gt 0 ]]; do
     case "$1" in
       --tool)            tool="${2:?'--tool 需要一个值'}"; shift 2 ;;
+      --category)        HERMES_CATEGORIES+=("${2:?'--category 需要一个值'}"); shift 2 ;;
       --no-interactive)  shift ;;
       --help|-h)         usage ;;
       *)                 err "未知选项: $1"; usage ;;
     esac
   done
+
+  if [[ ${#HERMES_CATEGORIES[@]} -gt 0 && "$tool" != "hermes" ]]; then
+    warn "--category 仅对 --tool hermes 生效，已忽略。"
+    HERMES_CATEGORIES=()
+  fi
 
   check_integrations
 
